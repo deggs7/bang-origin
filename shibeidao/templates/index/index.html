@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block base_class %}landing{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span6">
+        <form class="form-horizontal" action="/session" method="post">
+            <legend>Sign in</legend>
+            <input type="hidden" name="next" value="{{ next or '' }}" />
+            <div class="control-group">
+                <label class="control-label" for="email">Email</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" id="email" name="email" placeholder="E-mail">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="pass">Password</label>
+                <div class="controls">
+                    <input type="password" class="input-medium" id="pass" name="pass" placeholder="Password">
+                    <span class="help-block"><a href="/account/recovery">Forgot your password?</a></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+            </div>
+            <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="span6">
+        <form class="form-horizontal" action="/account/create" method="post">
+            <legend>Sign up for free!</legend>
+            {{ form.csrf_token }}
+            {{ wtf.quick_form(form) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

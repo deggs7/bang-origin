@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+id: {{ bang.id }}
+</p>
+<p>
+name: {{ bang.name }}
+</p>
+<p>
+members:
+</p>
+<ul>
+    {% for member in bang.members %}
+    <li>
+    {{ member.email }}
+    </li>
+    {% endfor %}
+</ul>
+<a href='{{ url_for('bang.search_invite', bang_id=bang.id) }}'>invite user</a>
+<p>
+activities:
+</p>
+<ul>
+    {% for activity in bang.activities %}
+    <li>
+    {{ activity.name }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

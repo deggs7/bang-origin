@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for bang in bangs %}
+<p>
+{{ bang.name }}
+<a href="{{ url_for('bang.join_bang', bang_id=bang.id) }}">join</a>
+</p>
+{% endfor %}
+
+{% endblock %}
