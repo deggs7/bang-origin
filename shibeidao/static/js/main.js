@@ -11,7 +11,7 @@ $(function(){
 
 
     var BangList = Backbone.Collection.extend({
-        model: Bang,
+        model: BangTitle,
         url: 'http://127.0.0.1:5000/api/bang',
         parse: function(response) {
             return response.objects;
@@ -28,9 +28,10 @@ $(function(){
     //});
 
 
-    var BangView = Backbone.View.extend({
+    var BangTitleView = Backbone.View.extend({
         tagName: "li",
-        template: _.template($('#item-template').html()),
+        className: "hand",
+        template: _.template($('#bang-title-template').html()),
 
         events: {
             "click": "show",
@@ -83,15 +84,16 @@ $(function(){
             });
         },
 
-        addOne: function(bang) {
-            var view = new BangView({model:bang});
-            this.$el.append(view.render().el);
-        },
-
         render: function() {
             this.$el.empty();
             bangs.each(this.addOne, this);
         },
+
+        addOne: function(bang) {
+            var view = new BangTitleView({model:bang});
+            this.$el.append(view.render().el);
+        },
+
 
     });
 
