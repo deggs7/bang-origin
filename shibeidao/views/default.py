@@ -10,7 +10,7 @@
 """
 
 
-from flask import Module, request, render_template, session
+from flask import Module, request, render_template, session, redirect, url_for
 from flask.ext.login import current_user
 from ..forms.signup import SignupForm
 
@@ -24,7 +24,8 @@ def index():
     registration form.
     """
     if current_user.is_authenticated():
-        return render_template('index/authed.html', user=current_user)
+        #return render_template('index/authed.html', user=current_user)
+        return redirect(url_for('bang.bang_home'))
     else:
         form = SignupForm(session.get('form'))
         if session.get('form'):

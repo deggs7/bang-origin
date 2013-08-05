@@ -1,7 +1,8 @@
 // Load the application once the DOM is ready, using `jQuery.ready`:
 $(function(){
 
-    var Bang = Backbone.Model.extend({
+    //bang
+    var BangInfo = Backbone.Model.extend({
         defaults: function() {
             return {
                 name: "default_name",
@@ -9,9 +10,9 @@ $(function(){
         },
     });
 
-
+    //collection of bang
     var BangList = Backbone.Collection.extend({
-        model: BangTitle,
+        model: BangInfo,
         url: 'http://127.0.0.1:5000/api/bang',
         parse: function(response) {
             return response.objects;
@@ -28,6 +29,7 @@ $(function(){
     //});
 
 
+    // one item in bang list, on the left of page
     var BangTitleView = Backbone.View.extend({
         tagName: "li",
         className: "hand",
@@ -49,6 +51,7 @@ $(function(){
         },
     });
 
+    // bang's description, on the right of page
     var BangDetailView = Backbone.View.extend({
         el: "#bang-detail",
 
@@ -66,7 +69,7 @@ $(function(){
         },
     });
 
-
+    //bang list, shows with bang's title
     var BangListView = Backbone.View.extend({
         el: $("#bang-list"),
 

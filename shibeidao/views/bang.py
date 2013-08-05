@@ -37,6 +37,11 @@ api_manager.create_api(Bang, methods=['GET', 'POST'],
                                          GET_MANY=[auth_func]))
 
 
+@bang.route('/bang/', methods=['GET'])
+@login_required
+def bang_home():
+    return render_template('bang/home.html', user=current_user)
+
 @bang.route('/bang/add', methods=['GET', 'POST'])
 @login_required
 def add_bang():
