@@ -2,17 +2,18 @@
 $(function(){
 
     //bang
-    var BangInfo = Backbone.Model.extend({
+    var Bang = Backbone.Model.extend({
         defaults: function() {
             return {
-                name: "default_name",
+                name: 'No name',
+                id: '0',
             };
         },
     });
 
     //collection of bang
     var BangList = Backbone.Collection.extend({
-        model: BangInfo,
+        model: Bang,
         url: 'http://127.0.0.1:5000/api/bang',
         parse: function(response) {
             return response.objects;
@@ -36,7 +37,7 @@ $(function(){
         template: _.template($('#bang-title-template').html()),
 
         events: {
-            "click": "show",
+            "click": "detail",
         },
 
         initialize: function() {
@@ -46,7 +47,7 @@ $(function(){
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
-        show: function() {
+        detail: function() {
             var detail_view = new BangDetailView({model:this.model})
         },
     });
@@ -71,7 +72,7 @@ $(function(){
 
     //bang list, shows with bang's title
     var BangListView = Backbone.View.extend({
-        el: $("#bang-list"),
+        el: "#bang-list",
 
         events: {
             //"click .refresh": "refresh",
@@ -79,9 +80,9 @@ $(function(){
 
         initialize: function() {
             this.listenTo(bangs, 'sync', this.render);
-            var filters = [{"name": "members__id", "op": "any", "val":"1"}];
+            //var filters = [{"name": "members__id", "op": "any", "val":"1"}];
             bangs.fetch({
-                data: {"q": JSON.stringify({"filters": filters })},
+                //data: {"q": JSON.stringify({"filters": filters })},
                 dataType: "json",
                 contentType: "application/json",
             });
@@ -101,6 +102,22 @@ $(function(){
     });
 
     var banglist_view = new BangListView;
+
+    var BangView = Backbone.View.extend({
+        initialize: function() {
+            this.bang_list = $("#bang-list");
+            this.bang_detail = $("#bang-detail");
+            this.activity_list = $("#activity-list");
+            this.activity_detail = $("#acitivity-detail");
+            this.member_list = $("#member-list");
+        },
+        render: function() {
+            alert('haha');
+            this.bang_detail.html('haha');
+        },
+    });
+
+    var bang = new BangView();
 
 });
 

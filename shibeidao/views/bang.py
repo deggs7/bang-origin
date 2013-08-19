@@ -32,9 +32,27 @@ def auth_func(**kwargs):
     if not current_user.is_authenticated():
         raise ProcessingException(message='Not authenticated', status_code=401)
 
+def post_get_single(result=None, **kwargs):
+    members = result.get('members',[])
+    if not members:
+        raise ProcessingException(message='Not authenticated', status_code=401)
+    in_members = filter(lambda x:x.get('id')==current_user.id, members)
+    if not in_members:
+        raise ProcessingException(message='Not authenticated', status_code=401)
+
+def pre_get_many(search_params=None, **kwargs):
+    if search_params is None:
+        return
+    filt = dict(name='members__id',val=current_user.id,op='any')
+    if 'filters' not in search_params:
+        search_params['filters'] = []
+    search_params['filters'].append(filt)
+
 api_manager.create_api(Bang, methods=['GET', 'POST'],
-                       preprocessors=dict(GET_SINGLE=[auth_func],
-                                         GET_MANY=[auth_func]))
+                       preprocessors=dict(GET_SINGLE=[auth_func, ],
+                                         GET_MANY=[auth_func, pre_get_many]),
+                       postprocessors=dict(GET_SINGLE=[post_get_single])
+                      )
 
 
 @bang.route('/bang/', methods=['GET'])
