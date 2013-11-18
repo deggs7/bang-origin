@@ -6,9 +6,9 @@ $(function(){
         defaults: function() {
             return {
                 name: 'No name',
-                id: '0',
+                id: '0'
             };
-        },
+        }
     });
 
     //collection of bang
@@ -37,7 +37,7 @@ $(function(){
         template: _.template($('#bang-title-template').html()),
 
         events: {
-            "click": "detail",
+            "click": "detail"
         },
 
         initialize: function() {
@@ -49,7 +49,7 @@ $(function(){
         },
         detail: function() {
             var detail_view = new BangDetailView({model:this.model})
-        },
+        }
     });
 
     // bang's description, on the right of page
@@ -67,7 +67,7 @@ $(function(){
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
-        },
+        }
     });
 
     //bang list, shows with bang's title
@@ -84,7 +84,7 @@ $(function(){
             bangs.fetch({
                 //data: {"q": JSON.stringify({"filters": filters })},
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json"
             });
         },
 
@@ -96,7 +96,7 @@ $(function(){
         addOne: function(bang) {
             var view = new BangTitleView({model:bang});
             this.$el.append(view.render().el);
-        },
+        }
 
 
     });
@@ -114,7 +114,7 @@ $(function(){
         render: function() {
             alert('haha');
             this.bang_detail.html('haha');
-        },
+        }
     });
 
     var bang = new BangView();
