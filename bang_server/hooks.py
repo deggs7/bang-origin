@@ -1,4 +1,4 @@
-from shibeidao import app, db
+from bang_server import app, db
 
 
 @app.after_request

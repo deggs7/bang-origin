@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.mail
+    bang_server.mail
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Mail setup and related functionality with Flask-Mail

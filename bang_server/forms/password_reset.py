@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.forms.password_reset
+    bang_server.forms.password_reset
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Password reset form

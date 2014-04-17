@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.tests.test_views
+    bang_server.tests.test_views
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     View testing
 
     :copyright: (c) 2012 by Jeff Long
 """
-import shibeidao
+import bang_server
 from werkzeug.security import generate_password_hash
 
 
@@ -17,16 +17,16 @@ class TestViews(object):
     @classmethod
     def setup_class(klass):
         """This method is run once for each class before any tests are run"""
-        shibeidao.app.config.from_object('shibeidao.config.TestingConfig')
-        from shibeidao import mail
-        klass.app = shibeidao.app.test_client()
+        bang_server.app.config.from_object('bang_server.config.TestingConfig')
+        from bang_server import mail
+        klass.app = bang_server.app.test_client()
 
         # Initialize database
-        klass.db = shibeidao.db
+        klass.db = bang_server.db
         klass.db.create_all()
 
         # Create a valid user
-        user = shibeidao.models.user.User()
+        user = bang_server.models.user.User()
         user.id = 1
         user.email = 'testing@test.com'
         user.pwhash = generate_password_hash('testpassword')
@@ -48,9 +48,9 @@ class TestViews(object):
 
     def test_default(self):
         '''Testing '/' without TESTING disabled'''
-        shibeidao.app.config['TESTING'] = False
+        bang_server.app.config['TESTING'] = False
         self.app.get('/')
-        shibeidao.app.config['TESTING'] = True
+        bang_server.app.config['TESTING'] = True
 
     def test_404(self):
         '''Testing 404 pages'''
@@ -71,7 +71,7 @@ class TestViews(object):
         assert 'Please check your e-mail' in rv.data
 
         # Correct attempt
-        user_obj = shibeidao.models.user.User
+        user_obj = bang_server.models.user.User
         user = user_obj.query.filter(user_obj.id == 1).one()
         user.level = 1
         self.db.session.add(user)
@@ -126,7 +126,7 @@ class TestViews(object):
         assert 'already been validated' in rv.data
 
         # Test valid key
-        meta_obj = shibeidao.models.user.UserMeta()
+        meta_obj = bang_server.models.user.UserMeta()
         meta_obj.key = 'email_ver_key'
         meta_obj.val = 'testkey'
         meta_obj.user_id = 1
@@ -143,7 +143,7 @@ class TestViews(object):
         rv = self.app.post('/account/recovery')
 
         # Create existing
-        meta_obj = shibeidao.models.user.UserMeta()
+        meta_obj = bang_server.models.user.UserMeta()
         meta_obj.key = 'password_rec_key'
         meta_obj.val = 'testkey'
         meta_obj.user_id = 1

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.forms.signup
+    bang_server.forms.signup
     ~~~~~~~~~~~~~~~~~~~~~~~~~
 
     User registration form definition with helpers.

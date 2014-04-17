@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.views.bang
+    bang_server.views.bang
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Bang management and profile editing.
@@ -17,11 +17,11 @@ from flask.ext.restless import ProcessingException
 from .. import db
 from .. import api_manager
 
-from shibeidao.models.user import User
-from shibeidao.models.bang import Bang
-from shibeidao.forms.bang import CreateBangForm
-from shibeidao.forms.bang import SearchBangForm
-from shibeidao.forms.bang import SearchUserForm
+from bang_server.models.user import User
+from bang_server.models.bang import Bang
+from bang_server.forms.bang import CreateBangForm
+from bang_server.forms.bang import SearchBangForm
+from bang_server.forms.bang import SearchUserForm
 
 
 bang = Module(__name__)

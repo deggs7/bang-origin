@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.views.session
+    bang_server.views.session
     ~~~~~~~~~~~~~~~~~~~~~~
 
     User login/logout session handling
@@ -10,7 +10,7 @@
 
 
 from flask import Module, redirect, url_for, request, flash
-from shibeidao.models.user import User
+from bang_server.models.user import User
 from werkzeug.security import check_password_hash
 from flask.ext.login import login_user, logout_user
 

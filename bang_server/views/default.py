@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.views.default
+    bang_server.views.default
     ~~~~~~~~~~~~~~~~~~~~~~
 
     Landing page views. Where accounts are created and users login

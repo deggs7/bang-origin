@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao
+    bang_server
     ~~~~~~~~
 
-    This is a new Flask shibeidao for a basic Flask-driven site with user auth,
+    This is a new Flask bang_server for a basic Flask-driven site with user auth,
     signup, e-mailing, and password recovery. Customize to fit your needs and
     go.
 
@@ -22,7 +22,7 @@ from flask.ext.restless import APIManager
 
 # App setup
 app = Flask(__name__)
-app.config.from_object('shibeidao.config.DevelopmentConfig')
+app.config.from_object('bang_server.config.DevelopmentConfig')
 db = SQLAlchemy(app)
 
 # Api management

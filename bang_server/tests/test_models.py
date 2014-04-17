@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.tests.test_models
+    bang_server.tests.test_models
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Model testing
 
     :copyright: (c) 2012 by Jeff Long
 """
-from shibeidao.models.user import User
+from bang_server.models.user import User
 from nose.tools import assert_equal, assert_not_equal
 
 

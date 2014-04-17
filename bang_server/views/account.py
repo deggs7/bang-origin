@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.views.account
+    bang_server.views.account
     ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Account management and profile editing.
@@ -54,7 +54,7 @@ def create_account():
         ]
 
         # Send e-mail
-        send('email_verification', 'Welcome to your Flask shibeidao site!',
+        send('email_verification', 'Welcome to your Flask bang_server site!',
              [user.email], user=user, key=key)
         db.session.add(user)
 

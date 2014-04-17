@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.config
+    bang_server.config
     ~~~~~~~~~~~~~~~
 
-    Flask shibeidao basic configuration file for different setups.
+    Flask bang_server basic configuration file for different setups.
 
     :copyright: (c) 2012 by Jeff Long
 """
@@ -17,7 +17,7 @@ class Config(object):
 
     DEBUG = True
     TESTING = True
-    ADMINS = frozenset(['admin@shibeidao.com'])
+    ADMINS = frozenset(['admin@bang_server.com'])
     SECRET_KEY = 'YOUR-CRAZY-AWESOME-SECRET-SAUCE'
     SALT = 'YOUR-SUPER-SALTY-POTATO-CHIPS'
 
@@ -57,11 +57,11 @@ class DevelopmentConfig(Config):
     MAIL_SERVER = 'smtp.exmail.qq.com'
     MAIL_PORT = 465
     MAIL_USE_SSL = True
-    MAIL_USERNAME = 'do-not-reply@shibeidao.com'
-    MAIL_PASSWORD = '5iteam'
+    MAIL_USERNAME = 'do-not-reply@bang_server.com'
+    MAIL_PASSWORD = 'password'
     MAIL_DEBUG = True
     MAIL_FAIL_SILENTLY = True
-    MAIL_DEFAULT_SENDER ='do-not-reply@shibeidao.com'
+    MAIL_DEFAULT_SENDER ='do-not-reply@bang_server.com'
 
 
 class TestingConfig(Config):

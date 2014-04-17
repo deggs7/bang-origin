@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.models.user
+    bang_server.models.user
     ~~~~~~~~~~~~~~~~~~~~
 
     User and related UserMeta base objects. To be subclassed by separate user

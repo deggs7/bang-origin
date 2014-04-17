@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-shibeidao.forms.bang
+bang_server.forms.bang
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 :copyright: (c) 2013 by David De
 """

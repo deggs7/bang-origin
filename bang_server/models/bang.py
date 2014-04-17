@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    shibeidao.models.bang
+    bang_server.models.bang
     ~~~~~~~~~~~~~~~~~~~~
 
     Bang and Activity base objects. To be subclassed by separate bang

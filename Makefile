@@ -1,14 +1,14 @@
-APP_NAME?=shibeidao
+APP_NAME?=bang_server
 
 tests:
-	@nosetests --with-coverage --cover-package shibeidao -v
+	@nosetests --with-coverage --cover-package bang_server -v
 
 clean:
 	@find . -type f -name \*.pyc -exec rm {} \;
 
 pep8:
-	@pep8 shibeidao
+	@pep8 bang_server
 
 rename:
-	@perl -e "s/shibeidao/$(APP_NAME)/g;" -pi $$(find . -type f)
-	@mv shibeidao $(APP_NAME)
+	@perl -e "s/bang_server/$(APP_NAME)/g;" -pi $$(find . -type f)
+	@mv bang_server $(APP_NAME)
